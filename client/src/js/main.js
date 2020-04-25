@@ -147,11 +147,11 @@ $(document).ready(function () {
 		theme: "custom-bar"
 	});
 
-	$('.accordion').mCustomScrollbar({
-		axis: "y",
-		scrollbarPosition: "outside",
-		theme: "custom-bar2"
-	});
+	// $('.accordion').mCustomScrollbar({
+	// 	axis: "y",
+	// 	scrollbarPosition: "outside",
+	// 	theme: "custom-bar2"
+	// });
 
 	/*==============================
 	Morelines
@@ -372,15 +372,15 @@ $(document).ready(function () {
 	/*==============================
 	Player
 	==============================*/
-	function initializePlayer() {
-		if ($('#player').length) {
-			const player = new Plyr('#player');
-		} else {
-			return false;
-		}
-		return false;
-	}
-	$(window).on('load', initializePlayer());
+	// function initializePlayer() {
+	// 	if ($('#player').length) {
+	// 		const player = new Plyr('#player');
+	// 	} else {
+	// 		return false;
+	// 	}
+	// 	return false;
+	// }
+	// $(window).on('load', initializePlayer());
 
 	/*==============================
 	Range sliders

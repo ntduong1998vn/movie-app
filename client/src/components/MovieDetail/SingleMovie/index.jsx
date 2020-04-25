@@ -14,17 +14,7 @@ function SingleMovie({ movie }) {
       {/* <!-- details content --> */}
       <div class="container">
         <Row>
-          {/* <!-- title --> */}
-          <Col xs={12}>
-            <h1 class="details__title">{movie.title}</h1>
-          </Col>
-          {/* <!-- end title --> */}
-
-          {/* <!-- content --> */}
-          <Col xs={12} xl={6}>
-            <MovieDetailCard movie={movie} />
-          </Col>
-          {/* <!-- end content --> */}
+          <MovieDetailCard single={true} movie={movie} />
 
           {/* <!-- player --> */}
           <Col xs={12} xl={6}>

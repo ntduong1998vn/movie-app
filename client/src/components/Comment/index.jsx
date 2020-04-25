@@ -49,7 +49,7 @@ Comment.prototype = {
   answer: PropTypes.bool,
 };
 
-Comment.propTypes = {
+Comment.defaultProps = {
   time: "1-1-1990",
   content: "",
   like: 0,

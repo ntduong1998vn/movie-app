@@ -6,7 +6,7 @@ import { SingleMovie, SeriesMovie } from "../../components/MovieDetail";
 function MoveDetailPage() {
   return (
     <React.Fragment>
-      <SingleMovie movie={movie} />
+      <SeriesMovie movie={movie} />
       <TabsContainer commentList={comments} sideCards={sideCards} />
     </React.Fragment>
   );

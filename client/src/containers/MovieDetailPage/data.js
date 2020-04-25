@@ -39,7 +39,7 @@ const comments = [
         answer: true
     },
     {
-        id: 3,
+        id: 4,
         avt: avt,
         username: 'John Doe',
         time: '30.08.2018, 17:53',
@@ -49,7 +49,7 @@ const comments = [
         answer: false
     },
     {
-        id: 4,
+        id: 5,
         avt: avt,
         username: 'John Doe',
         time: '30.08.2018, 17:53',
@@ -59,7 +59,7 @@ const comments = [
         answer: false
     },
     {
-        id: 5,
+        id: 6,
         avt: avt,
         username: 'John Doe',
         time: '30.08.2018, 17:53',

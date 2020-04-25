@@ -1,60 +1,104 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
+import classNames from "classnames";
 
-function MovieDetailCard({ movie }) {
+MovieDetailCard.defaultProps = {
+  single: true,
+};
+
+MovieDetailCard.prototype = {
+  single: PropTypes.bool,
+  movie: PropTypes.object,
+};
+
+function MovieDetailCard({ single, movie }) {
   return (
-    <div class="card card--details">
-      <Row>
-        {/* <!-- card cover --> */}
-        <Col xs={12} sm={4} md={4} lg={3} xl={5}>
-          <div class="card__cover">
-            <img src={movie.poster} alt="" />
-          </div>
-        </Col>
-        {/* <!-- end card cover --> */}
+    <React.Fragment>
+      {/* <!-- title --> */}
+      <Col xs={12}>
+        <h1 className="details__title">{movie.title}</h1>
+      </Col>
+      {/* <!-- end title --> */}
 
-        {/* <!-- card content --> */}
-        <Col xs={12} sm={8} md={8} lg={9} xl={7}>
-          <div class="card__content">
-            <div class="card__wrap">
-              <span class="card__rate">
-                <i class="icon ion-ios-star"></i>
-                {movie.imdb}
-              </span>
-
-              <ul class="card__list">
-                <li>{movie.resolution}</li>
-                <li>{movie.limitAge}</li>
-              </ul>
+      {/* <!-- content --> */}
+      <div
+        className={classNames({
+          "col-12 col-xl-6": single,
+          "col-10": !single,
+        })}
+      >
+        <div
+          className={classNames({
+            "card card--details": true,
+            "card--series": !single,
+          })}
+        >
+          <Row>
+            {/* <!-- card cover --> */}
+            <div
+              className={classNames({
+                "col-12 col-sm-4 col-md-4 col-lg-3": true,
+                "col-xl-5": single,
+                "col-xl-3": !single,
+              })}
+            >
+              <div className="card__cover">
+                <img src={movie.poster} alt="" />
+              </div>
             </div>
+            {/* <!-- end card cover --> */}
 
-            <ul class="card__meta">
-              <li>
-                <span>Genre:</span>
-                {movie.genres.map((genre) => {
-                  return <a href="#">{genre}</a>;
-                })}
-              </li>
-              <li>
-                <span>Release year:</span> {movie.release}
-              </li>
-              <li>
-                <span>Running time:</span> {`${movie.time} min`}
-              </li>
-              <li>
-                <span>Country:</span> <a href="#">{movie.country}</a>{" "}
-              </li>
-            </ul>
+            {/* <!-- card content --> */}
+            <div
+              className={classNames({
+                "col-12 col-sm-8 col-md-8 col-lg-9": true,
+                "col-xl-7": single,
+                "col-xl-9": !single,
+              })}
+            >
+              <div className="card__content">
+                <div className="card__wrap">
+                  <span className="card__rate">
+                    <i className="icon ion-ios-star"></i>
+                    {movie.imdb}
+                  </span>
 
-            <div class="card__description card__description--details">
-              {movie.desc}
+                  <ul className="card__list">
+                    <li>{movie.resolution}</li>
+                    <li>{movie.limitAge}</li>
+                  </ul>
+                </div>
+
+                <ul className="card__meta">
+                  <li>
+                    <span>Genre:</span>
+                    {movie.genres.map((genre) => {
+                      return <a href="#">{genre}</a>;
+                    })}
+                  </li>
+                  <li>
+                    <span>Release year:</span> {movie.release}
+                  </li>
+                  <li>
+                    <span>Running time:</span> {`${movie.time} min`}
+                  </li>
+                  <li>
+                    <span>Country:</span> <a href="#">{movie.country}</a>{" "}
+                  </li>
+                </ul>
+
+                <div className="card__description card__description--details">
+                  {movie.desc}
+                </div>
+              </div>
             </div>
-          </div>
-        </Col>
-        {/* <!-- end card content --> */}
-      </Row>
-    </div>
+            {/* <!-- end card content --> */}
+          </Row>
+        </div>
+      </div>
+      {/* <!-- end content --> */}
+    </React.Fragment>
   );
 }
 
