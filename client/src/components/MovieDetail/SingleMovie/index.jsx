@@ -2,7 +2,6 @@ import React from "react";
 import PlyrPlayer from "../../PlyrPlayer";
 import MovieDetailCard from "../MovieDetailCard";
 import { Col, Row } from "react-bootstrap";
-import cover from "../../../img/covers/cover.jpg";
 
 function SingleMovie({ movie }) {
   return (

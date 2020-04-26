@@ -753,6 +753,9 @@ ul {
   background: url("../img/home/home__bg.jpg") no-repeat center/cover;
   opacity: 0.06;
 }
+.slick-slide {
+  padding: 35px 15px 0 15px;
+}
 @media (min-width: 576px) {
   .home__title {
     font-size: 30px;

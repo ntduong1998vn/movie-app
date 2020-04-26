@@ -128,6 +128,5 @@ const movie = {
     country: "USA",
     release: "2017",
     time: 100
-
 }
 export { comments, sideCards, movie }

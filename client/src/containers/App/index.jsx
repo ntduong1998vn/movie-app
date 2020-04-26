@@ -13,12 +13,14 @@ import PaidPage from "../PaidPage";
 import ErrorPage from "../ErrorPage";
 import Footer from "../../components/Footer";
 import MoveDetailPage from "../MovieDetailPage";
+import HomePage from "../HomePage";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
       <Switch>
+        <Route path="/" component={HomePage} exact />
         <Route path="/sign-in" component={SignIn} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/update-account" component={PaidPage} />
