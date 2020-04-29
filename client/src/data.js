@@ -4,7 +4,7 @@ import cover3 from "./img/covers/cover3.jpg";
 import cover4 from "./img/covers/cover4.jpg";
 import cover5 from "./img/covers/cover5.jpg";
 import cover6 from "./img/covers/cover6.jpg";
-import avt from './img/user.png';   
+import avt from './img/user.png';
 
 const detailList = [
     {
@@ -356,4 +356,13 @@ const movie = {
     time: 100
 }
 
-export { detailList, gridList, movieCards, movie, comments }
+const qualities = [{ id: 1, name: "HD" }, { id: 2, name: "SD" }, { id: 3, name: "Full HD" }];
+
+const genres = [
+    { id: 1, name: "Romance" },
+    { id: 2, name: "Drama" },
+    { id: 3, name: "Horror" },
+    { id: 4, name: "Scifi" },
+    { id: 5, name: "Action" },
+]
+export { genres, detailList, gridList, movieCards, movie, comments, qualities }

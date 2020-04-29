@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-function HomeSlider({ movies }) {
+function HomeCarousel({ movies }) {
   const sliderEl = useRef(null);
   const settings = {
     // className: "slider variable-width",
@@ -97,6 +97,6 @@ function HomeSlider({ movies }) {
   );
 }
 
-HomeSlider.propTypes = {};
+HomeCarousel.propTypes = {};
 
-export default HomeSlider;
+export default HomeCarousel;

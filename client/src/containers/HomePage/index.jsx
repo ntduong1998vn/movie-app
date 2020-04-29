@@ -1,5 +1,5 @@
 import React from "react";
-import HomeSlider from "../../components/HomeSlider";
+import HomeCarousel from "../../components/HomeCarousel";
 import { TabItem, Tabs } from "../../components/CustomTabs";
 import GridList from "../../components/GridList";
 import DetailList from "../../components/DetailList";
@@ -8,7 +8,7 @@ import { detailList, gridList, movieCards } from "../../data";
 function HomePage(props) {
   return (
     <React.Fragment>
-      <HomeSlider movies={movieCards} />
+      <HomeCarousel movies={movieCards} />
       <Tabs activeTab="New Releases">
         <TabItem label="New Releases">
           <DetailList movieList={detailList} />
