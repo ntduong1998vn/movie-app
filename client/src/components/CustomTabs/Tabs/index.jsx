@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tab, Nav, Row, Col } from "react-bootstrap";
+import { Tab, Nav, Row, Col, Dropdown } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 CustomTabs.propTypes = {
@@ -39,82 +39,35 @@ function CustomTabs({ activeTab, children, ...props }) {
                 </Nav>
 
                 {/* <!-- content mobile tabs nav --> */}
-                <div className="content__mobile-tabs" id="content__mobile-tabs">
-                  <div
-                    className="content__mobile-tabs-btn dropdown-toggle"
+                <Dropdown
+                  className="content__mobile-tabs"
+                  id="content__mobile-tabs"
+                >
+                  <Dropdown.Toggle
+                    className="content__mobile-tabs-btn"
                     role="navigation"
                     id="mobile-tabs"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
                   >
                     <input type="button" value="New items" />
                     <span></span>
-                  </div>
+                  </Dropdown.Toggle>
 
-                  <div
+                  <Dropdown.Menu
                     className="content__mobile-tabs-menu dropdown-menu"
                     aria-labelledby="mobile-tabs"
                   >
-                    <ul className="nav nav-tabs" role="tablist">
-                      <li className="nav-item">
-                        <a
-                          className="nav-link active"
-                          id="1-tab"
-                          data-toggle="tab"
-                          href="#tab-1"
-                          role="tab"
-                          aria-controls="tab-1"
-                          aria-selected="true"
-                        >
-                          NEW RELEASES
-                        </a>
-                      </li>
-
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          id="2-tab"
-                          data-toggle="tab"
-                          href="#tab-2"
-                          role="tab"
-                          aria-controls="tab-2"
-                          aria-selected="false"
-                        >
-                          MOVIES
-                        </a>
-                      </li>
-
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          id="3-tab"
-                          data-toggle="tab"
-                          href="#tab-3"
-                          role="tab"
-                          aria-controls="tab-3"
-                          aria-selected="false"
-                        >
-                          TV SERIES
-                        </a>
-                      </li>
-
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          id="4-tab"
-                          data-toggle="tab"
-                          href="#tab-4"
-                          role="tab"
-                          aria-controls="tab-4"
-                          aria-selected="false"
-                        >
-                          CARTOONS
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                    <Nav variant="tabs" as="ul">
+                      {children.map((child, index) => {
+                        const { label } = child.props;
+                        return (
+                          <Nav.Item as="li" key={index}>
+                            <Nav.Link eventKey={label}>{label}</Nav.Link>
+                          </Nav.Item>
+                        );
+                      })}
+                    </Nav>
+                  </Dropdown.Menu>
+                </Dropdown>
                 {/* <!-- end content mobile tabs nav --> */}
               </Col>
             </Row>

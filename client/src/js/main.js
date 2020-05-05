@@ -127,16 +127,16 @@ $(document).ready(function () {
 	/*==============================
 	Filter
 	==============================*/
-	$('.filter__item-menu li').each(function () {
-		$(this).attr('data-value', $(this).text().toLowerCase());
-	});
+	// $('.filter__item-menu li').each(function () {
+	// 	$(this).attr('data-value', $(this).text().toLowerCase());
+	// });
 
-	$('.filter__item-menu li').on('click', function () {
-		var text = $(this).text();
-		var item = $(this);
-		var id = item.closest('.filter__item').attr('id');
-		$('#' + id).find('.filter__item-btn input').val(text);
-	});
+	// $('.filter__item-menu li').on('click', function () {
+	// 	var text = $(this).text();
+	// 	var item = $(this);
+	// 	var id = item.closest('.filter__item').attr('id');
+	// 	$('#' + id).find('.filter__item-btn input').val(text);
+	// });
 
 	/*==============================
 	Scroll bar

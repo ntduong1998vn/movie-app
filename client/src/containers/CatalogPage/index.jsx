@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import PageTitle from "../../components/PageTitle";
 import FilterMovie from "../../components/FilterMovie";
 
-import { genres as genreList, qualities as qualityList } from "../../data";
+import {
+  genres as genreList,
+  qualities as qualityList,
+  detailList,
+} from "../../data";
+import CatalogList from "../../components/CatalogList";
 
 function CatalogPage(props) {
   const [qualities, setQualities] = useState([]);
@@ -19,6 +24,7 @@ function CatalogPage(props) {
     <React.Fragment>
       <PageTitle title="Catalog" location="Catalog grid" />
       <FilterMovie qualities={qualities} genreList={genres} />
+      <CatalogList movieList={detailList} />
     </React.Fragment>
   );
 }

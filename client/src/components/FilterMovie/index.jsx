@@ -1,11 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Dropdown } from "react-bootstrap";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.min.css";
 import wNumb from "wnumb";
 
+import $ from "jquery";
+import "malihu-custom-scrollbar-plugin";
+import "malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css";
+import "jquery-mousewheel";
+// forwardRef again here!
+// Dropdown needs access to the DOM of the Menu to measure it
+const CustomMenu = React.forwardRef(
+  ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
+    // const [value, setValue] = useState("");
+
+    useEffect(() => {
+      $(".scrollbar-dropdown").mCustomScrollbar({
+        axis: "y",
+        scrollbarPosition: "outside",
+        theme: "custom-bar",
+      });
+    }, []);
+
+    return (
+      <ul
+        ref={ref}
+        style={style}
+        className={className}
+        aria-labelledby={labeledBy}
+      >
+        {children}
+      </ul>
+    );
+  }
+);
+
 function FilterMovie({ genreList, qualities }) {
+  console.log(genreList);
   function handleMenuItemClick(e) {
     let menuId = e.target.closest(".filter__item").getAttribute("id");
     document.querySelector(`#${menuId} .filter__item-btn input`).value =
@@ -39,7 +71,37 @@ function FilterMovie({ genreList, qualities }) {
             <div className="filter__content">
               <div className="filter__items">
                 {/* <!-- filter item --> */}
+                <Dropdown className="filter__item" id="filter__genre">
+                  <span className="filter__item-label">GENRE:</span>
 
+                  <Dropdown.Toggle
+                    // as="div"
+                    className="filter__item-btn"
+                    // role="navigation"
+                    // id="filter-genre"
+                    // data-toggle="dropdown"
+                    // aria-haspopup="true"
+                    // aria-expanded="false"
+                  >
+                    <input type="button" value="Action/Adventure" />
+                    <span></span>
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu
+                    as={CustomMenu}
+                    className="filter__item-menu scrollbar-dropdown"
+                  >
+                    {genreList.map((genre) => (
+                      <li
+                        key={genre.id}
+                        data-value={genre.name.toLowerCase()}
+                        onClick={handleMenuItemClick}
+                      >
+                        {genre.name}
+                      </li>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
                 {/* <!-- end filter item --> */}
 
                 {/* <!-- filter item --> */}
@@ -55,7 +117,10 @@ function FilterMovie({ genreList, qualities }) {
                     <span></span>
                   </Dropdown.Toggle>
 
-                  <Dropdown.Menu className="filter__item-menu scrollbar-dropdown">
+                  <Dropdown.Menu
+                    as={CustomMenu}
+                    className="filter__item-menu scrollbar-dropdown"
+                  >
                     {qualities.map((quality) => (
                       <li
                         key={quality.id}
